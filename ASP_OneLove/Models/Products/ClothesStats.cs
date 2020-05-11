@@ -21,9 +21,4 @@
         xxl
     }
     
-    public enum Material
-    {
-        cotton,
-        polyester,
-    }
 }
