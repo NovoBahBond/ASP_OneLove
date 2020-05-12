@@ -2,7 +2,7 @@
 {
     public class Clothes : Product
     {
-        public ClothesStats Stats { get; set; }
+        public ClothesSize Size { get; set; }
 
         public ClothesCategory Category { get; set; }
     }
@@ -17,5 +17,15 @@
         Dress,
         Underwear,
         Nightdress
+    }
+
+    public enum ClothesSize
+    {
+        xs,
+        s,
+        m,
+        l,
+        xl,
+        xxl
     }
 }

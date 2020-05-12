@@ -12,8 +12,13 @@
 
         public byte? GuaranteeInMonth { get; set; } // Be careful with this. in Controllers use methods that can return default value!
 
-        public double Price { get; set; }
+        public Material Material { get; set; }
 
+        public Color Color { get; set; }
+
+        public Country Country { get; set; }
+
+        public double Price { get; set; }
     }
     public enum Color
     {
