@@ -1,5 +1,5 @@
 ﻿namespace ASP_OneLove.Models
-{
+{        
     public class VacuumCleaner : Product
     {
         public string Model { get; set; }

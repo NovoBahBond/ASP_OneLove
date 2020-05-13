@@ -19,6 +19,10 @@
         public Country Country { get; set; }
 
         public double Price { get; set; }
+
+        public bool IsAvailable { get; set; }
+
+        public int AmountInStock { get; set; }
     }
     public enum Color
     {
