@@ -1,4 +1,6 @@
-﻿namespace ASP_OneLove.Models
+﻿using ASP_OneLove.Models.Products.Enums;
+
+namespace ASP_OneLove.Models.Products
 {
     public class Furniture : Product
     {
@@ -7,14 +9,6 @@
         public FurnitureCategory Category { get; set; }
     }
     
-    public enum FurnitureCategory
-    {
-        Chair,
-        Armchair,
-        Table,
-        Desk,
-        Sofa,
-        Closet 
-    }
+    
 }
 

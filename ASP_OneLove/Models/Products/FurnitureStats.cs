@@ -1,8 +1,8 @@
-﻿namespace ASP_OneLove.Models
+﻿namespace ASP_OneLove.Models.Products
 {
     public class FurnitureStats
     {
-        public Size Size { get; set; }
+        public Volume Volume { get; set; }
 
         public double WeightInKg { get; set; }
     }
