@@ -1,10 +1,12 @@
-﻿namespace ASP_OneLove.Models
+﻿using ASP_OneLove.Models.Products.Enums;
+
+namespace ASP_OneLove.Models.Products
 {
     public class SlowCooker : Product // Мультиварка
     {
         public string Model { get; set; }
 
-        public Size Size { get; set; }
+        public Volume Volume { get; set; }
 
         public int WeightInKg { get; set; }
 
@@ -23,14 +25,6 @@
     {
 
     }
-    public enum Language
-    {
-        Russian,
-        English,
-        Polish,
-        German,
-        French,
-        Italian
-    }
+    
 }
 
