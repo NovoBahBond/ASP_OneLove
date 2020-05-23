@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 
 namespace ASP_OneLove.Models.Products
 {
@@ -8,6 +9,6 @@ namespace ASP_OneLove.Models.Products
 
         public string Name { get; set; }
         
-        public List<int> ProductsIds { get; set; }
+        //public IEnumerable<int> ProductsIds { get; set; }
     }
 }

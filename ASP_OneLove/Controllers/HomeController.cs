@@ -25,8 +25,11 @@ namespace ASP_OneLove.Controllers
 
         public IActionResult Category()
         {
+            return View();
+        }
 
-
+        public IActionResult Clothes()
+        {
             return View();
         }
 

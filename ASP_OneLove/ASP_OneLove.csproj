@@ -10,13 +10,16 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.3" />
-        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.3" />
-        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.3" />
+        <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.4" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.4" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.4" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.4" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.3" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.3" />
-        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.4" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.4">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
     </ItemGroup>
 
     <ItemGroup>
@@ -35,10 +38,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Include="wwwroot\Images\Clothes.png" />
       <None Include="wwwroot\Images\CoffeeMachine.jpg" />
       <None Include="wwwroot\Images\Furniture.jpg" />
-      <None Include="wwwroot\Images\Household.jpg" />
       <None Include="wwwroot\Images\Laptop.jpg" />
       <None Include="wwwroot\Images\VacuumCleaner.jpg" />
     </ItemGroup>

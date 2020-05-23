@@ -26,6 +26,8 @@ namespace ASP_OneLove.Models
         public bool IsAvailable => AmountInStock > 0;
 
         public int AmountInStock { get; set; }
+
+        public string Image { get; set; }
     }
     
 }
