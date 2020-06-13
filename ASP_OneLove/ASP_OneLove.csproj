@@ -37,11 +37,4 @@
       <Folder Include="wwwroot\Images\" />
     </ItemGroup>
 
-    <ItemGroup>
-      <None Include="wwwroot\Images\CoffeeMachine.jpg" />
-      <None Include="wwwroot\Images\Furniture.jpg" />
-      <None Include="wwwroot\Images\Laptop.jpg" />
-      <None Include="wwwroot\Images\VacuumCleaner.jpg" />
-    </ItemGroup>
-
 </Project>

@@ -23,16 +23,23 @@ namespace ASP_OneLove.Controllers
             return View();
         }
 
-        public IActionResult Category()
+        public IActionResult House()
         {
             return View();
         }
-
-        public IActionResult Clothes()
+        public IActionResult Apartments()
         {
             return View();
         }
+        public IActionResult Contacts()
+        {
+            return View();
 
+        }
+        public IActionResult Reviews()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();
