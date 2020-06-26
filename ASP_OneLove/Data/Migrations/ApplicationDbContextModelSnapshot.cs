@@ -19,72 +19,115 @@ namespace ASP_OneLove.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("ASP_OneLove.Models.Products.Brand", b =>
+            modelBuilder.Entity("ASP_OneLove.Models.Address", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("AddressId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name")
+                    b.Property<int>("BuildingNumber")
+                        .HasColumnType("int");
+
+                    b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.Property<string>("Country")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("Brand");
+                    b.Property<int>("PostCode")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Street")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AddressId");
+
+                    b.ToTable("Address");
                 });
 
-            modelBuilder.Entity("ASP_OneLove.Models.Products.Clothes", b =>
+            modelBuilder.Entity("ASP_OneLove.Models.Apartment", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ApartmentId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AmountInStock")
+                    b.Property<long>("BathCount")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("BedCount")
+                        .HasColumnType("bigint");
+
+                    b.Property<int?>("BuildingID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("BrandId")
+                    b.Property<int>("Floor")
                         .HasColumnType("int");
 
-                    b.Property<int>("Category")
+                    b.Property<bool>("IsBooked")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Number")
                         .HasColumnType("int");
-
-                    b.Property<int>("Color")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Country")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<byte?>("GuaranteeInMonth")
-                        .HasColumnType("tinyint");
-
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Material")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
-                    b.Property<int>("Sex")
+                    b.Property<long>("RoomCount")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("Stars")
                         .HasColumnType("int");
 
-                    b.Property<int>("Size")
+                    b.Property<int>("Type")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("ApartmentId");
 
-                    b.HasIndex("BrandId");
+                    b.HasIndex("BuildingID");
 
-                    b.ToTable("Clothes");
+                    b.ToTable("Apartment");
+                });
+
+            modelBuilder.Entity("ASP_OneLove.Models.Building", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("AddressId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Floors")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("AddressId");
+
+                    b.ToTable("Buildings");
+                });
+
+            modelBuilder.Entity("ASP_OneLove.Models.SpecialFacilities", b =>
+                {
+                    b.Property<int>("FacilityId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ApartmentId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Facility")
+                        .HasColumnType("int");
+
+                    b.HasKey("FacilityId");
+
+                    b.HasIndex("ApartmentId");
+
+                    b.ToTable("SpecialFacilities");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -287,11 +330,25 @@ namespace ASP_OneLove.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("ASP_OneLove.Models.Products.Clothes", b =>
+            modelBuilder.Entity("ASP_OneLove.Models.Apartment", b =>
                 {
-                    b.HasOne("ASP_OneLove.Models.Products.Brand", "Brand")
+                    b.HasOne("ASP_OneLove.Models.Building", null)
+                        .WithMany("Apartments")
+                        .HasForeignKey("BuildingID");
+                });
+
+            modelBuilder.Entity("ASP_OneLove.Models.Building", b =>
+                {
+                    b.HasOne("ASP_OneLove.Models.Address", "Address")
                         .WithMany()
-                        .HasForeignKey("BrandId");
+                        .HasForeignKey("AddressId");
+                });
+
+            modelBuilder.Entity("ASP_OneLove.Models.SpecialFacilities", b =>
+                {
+                    b.HasOne("ASP_OneLove.Models.Apartment", null)
+                        .WithMany("SpecialFacilities")
+                        .HasForeignKey("ApartmentId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

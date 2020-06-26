@@ -3,7 +3,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ASP_OneLove.Models
 {
-    public class Apartment : Building {
+    public class Apartment {
+        [Key]
+        public int ApartmentId { get; set; }
+
         //Тип (Дом или квартира)
         public ApartmentType Type { get; set; }
         
@@ -32,6 +35,6 @@ namespace ASP_OneLove.Models
         public bool IsBooked { get; set; } = false;
         
         //Особые удобства
-        public ICollection<string> SpecialFacilities { get; set; }
+        public ICollection<SpecialFacilities> SpecialFacilities { get; set; }
     }
 }

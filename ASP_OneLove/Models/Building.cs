@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace ASP_OneLove.Models
 {
-    public abstract class Building {
+    public class Building {
         [Key]
         public int ID { get; set; }
         //Адрес

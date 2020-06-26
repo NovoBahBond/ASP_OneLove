@@ -1,0 +1,84 @@
+﻿@model IEnumerable<ASP_OneLove.Models.Apartment>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Floor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BedCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BathCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stars)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsBooked)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Floor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BedCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BathCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stars)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsBooked)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ApartmentId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ApartmentId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ApartmentId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
