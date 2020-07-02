@@ -1,12 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ASP_OneLove.Models
 {
-    public class SpecialFacilities
+    public class SpecialFacility
     {
         [Key]
-        public int FacilityId { get; set; }
-        
-        public Facilities Facility { get; set; }
+        public int Id { get; set; }
+        public Facility Facility { get; set; }
     }
 }

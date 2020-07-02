@@ -42,7 +42,42 @@ namespace ASP_OneLove.Controllers
 
             return View(apartment);
         }
+        public async Task<IActionResult> Order(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
 
+            var apartment = await _context.Apartment.FindAsync(id);
+            if (apartment == null)
+            {
+                return NotFound();
+            }
+            return View(apartment);
+        }
+
+        public async Task<IActionResult> ProceedOrder(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var apartment = await _context.Apartment.FindAsync(id);
+            if (apartment == null)
+            {
+                return NotFound();
+            }
+            apartment.IsBooked = true;
+            _context.Update(apartment);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(FinishOrder));
+        }
+        public IActionResult FinishOrder()
+        {
+            return View();
+        }
         // GET: Apartments/Create
         public IActionResult Create()
         {
@@ -54,7 +89,7 @@ namespace ASP_OneLove.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ApartmentId,Type,Floor,Number,RoomCount,BedCount,BathCount,Stars,Price,IsBooked")] Apartment apartment)
+        public async Task<IActionResult> Create([Bind("ApartmentId,Type,Floor,Number,RoomCount,BedCount,BathCount,Stars,Price,IsBooked,URLPath,SpecialFacilitiesAsString")] Apartment apartment)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +121,7 @@ namespace ASP_OneLove.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ApartmentId,Type,Floor,Number,RoomCount,BedCount,BathCount,Stars,Price,IsBooked")] Apartment apartment)
+        public async Task<IActionResult> Edit(int id, [Bind("ApartmentId,Type,Floor,Number,RoomCount,BedCount,BathCount,Stars,Price,IsBooked,URLPath")] Apartment apartment)
         {
             if (id != apartment.ApartmentId)
             {

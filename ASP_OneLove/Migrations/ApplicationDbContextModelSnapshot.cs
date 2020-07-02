@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace ASP_OneLove.Data.Migrations
+namespace ASP_OneLove.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -77,11 +77,17 @@ namespace ASP_OneLove.Data.Migrations
                     b.Property<long>("RoomCount")
                         .HasColumnType("bigint");
 
+                    b.Property<string>("SpecialFacilitiesAsString")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Stars")
                         .HasColumnType("int");
 
                     b.Property<int>("Type")
                         .HasColumnType("int");
+
+                    b.Property<string>("URLPath")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ApartmentId");
 
@@ -110,9 +116,9 @@ namespace ASP_OneLove.Data.Migrations
                     b.ToTable("Buildings");
                 });
 
-            modelBuilder.Entity("ASP_OneLove.Models.SpecialFacilities", b =>
+            modelBuilder.Entity("ASP_OneLove.Models.SpecialFacility", b =>
                 {
-                    b.Property<int>("FacilityId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -123,7 +129,7 @@ namespace ASP_OneLove.Data.Migrations
                     b.Property<int>("Facility")
                         .HasColumnType("int");
 
-                    b.HasKey("FacilityId");
+                    b.HasKey("Id");
 
                     b.HasIndex("ApartmentId");
 
@@ -344,7 +350,7 @@ namespace ASP_OneLove.Data.Migrations
                         .HasForeignKey("AddressId");
                 });
 
-            modelBuilder.Entity("ASP_OneLove.Models.SpecialFacilities", b =>
+            modelBuilder.Entity("ASP_OneLove.Models.SpecialFacility", b =>
                 {
                     b.HasOne("ASP_OneLove.Models.Apartment", null)
                         .WithMany("SpecialFacilities")

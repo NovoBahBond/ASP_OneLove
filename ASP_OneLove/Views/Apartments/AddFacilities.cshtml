@@ -1,0 +1,28 @@
+﻿@model IEnumerable<ASP_OneLove.Models.SpecialFacility>
+@{
+    ViewData["Title"] = "AddFacilities";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+    
+}
+
+<h1>AddFacilities</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Facilitie</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.OrderBy(s => s.Facility))
+    {
+        <tr>
+            <td>
+                
+            </td>
+        </tr>
+    }
+
+    </tbody>
+</table>

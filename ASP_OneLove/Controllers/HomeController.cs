@@ -6,16 +6,20 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ASP_OneLove.Models;
+using ASP_OneLove.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace ASP_OneLove.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -23,13 +27,13 @@ namespace ASP_OneLove.Controllers
             return View();
         }
 
-        public IActionResult House()
+        public async Task<IActionResult> House()
         {
-            return View();
+            return View(await _context.Apartment.ToListAsync());
         }
-        public IActionResult Apartments()
+        public async Task<IActionResult> Apartments()
         {
-            return View();
+            return View(await _context.Apartment.ToListAsync());
         }
         public IActionResult Contacts()
         {

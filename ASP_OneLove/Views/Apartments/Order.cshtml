@@ -1,0 +1,92 @@
+﻿@model ASP_OneLove.Models.Apartment
+
+@{
+    ViewData["Title"] = "Order";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+<h1>Order</h1>
+
+<div>
+    <h4>Apartment</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.URLPath)
+        </dt>
+        <dd class = "col-sm-10">
+            <img src="@Model.URLPath" alt="https://cdn3.iconfinder.com/data/icons/web-development-and-programming-2/64/development_Not_Found-512.png" />
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Floor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Floor)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Number)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Number)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RoomCount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RoomCount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BedCount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BedCount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BathCount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BathCount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Stars)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Stars)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IsBooked)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IsBooked)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SpecialFacilities)
+        </dt>
+        <dd class="col-sm-10">
+            @{
+                var array = Model.SpecialFacilitiesAsString.Split(' ');
+                Array.Sort(array);
+                foreach (var i in array)
+                {
+                    <p>@Enum.GetName(typeof(Facility), int.Parse(i)); </p>
+                }
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-success text-white" asp-action="ProceedOrder" asp-route-id="@Model.ApartmentId">Confirm</a> |
+    <a class="btn btn-secondary text-white" asp-action="Apartments" asp-controller="Home">Back to List</a>
+</div>

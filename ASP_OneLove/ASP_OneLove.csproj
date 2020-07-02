@@ -6,6 +6,11 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Compile Remove="Migrations\20200630102147_Facilities.cs" />
+      <Compile Remove="Migrations\20200630102147_Facilities.Designer.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
         <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
     </ItemGroup>
 
@@ -36,13 +41,6 @@
 
     <ItemGroup>
       <Folder Include="wwwroot\Images\" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Content Update="Views\Home\Search.cshtml">
-        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      </Content>
     </ItemGroup>
 
 </Project>

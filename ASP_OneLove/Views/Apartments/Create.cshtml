@@ -34,33 +34,49 @@
             </div>
             <div class="form-group">
                 <label asp-for="RoomCount" class="control-label"></label>
-                <input asp-for="RoomCount" class="form-control" type="number"/>
+                <input asp-for="RoomCount" class="form-control" type="number" />
                 <span asp-validation-for="RoomCount" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="BedCount" class="control-label"></label>
-                <input asp-for="BedCount" class="form-control" type="number"/>
+                <input asp-for="BedCount" class="form-control" type="number" />
                 <span asp-validation-for="BedCount" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="BathCount" class="control-label"></label>
-                <input asp-for="BathCount" class="form-control" type="number"/>
+                <input asp-for="BathCount" class="form-control" type="number" />
                 <span asp-validation-for="BathCount" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Stars" class="control-label"></label>
-                <input asp-for="Stars" class="form-control" type="range" min="1" max="5"/>
+                <input asp-for="Stars" class="form-control" type="range" min="1" max="5" />
                 <span asp-validation-for="Stars" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" type="number" placeholder="$$$"/>
+                <input asp-for="Price" class="form-control" type="number" placeholder="$$$" />
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsBooked" /> @Html.DisplayNameFor(model => model.IsBooked)
-                </label>
+            <div class="form-group">
+                <label asp-for="URLPath" class="control-label"></label>
+                <input asp-for="URLPath" class="form-control" type="url" placeholder="" />
+                <span asp-validation-for="URLPath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SpecialFacilities" class="control-label"></label>
+                <input class="form-control" asp-for="SpecialFacilitiesAsString" type="text" id="sfas" placeholder="Example: 20 3 1">
+                <p class="text-info">To add facilities, you should enter facilities IDs in field above splited by spaces</p>
+                <dl class="row">
+                @foreach(int f in Enum.GetValues(typeof(Facility)))
+                {
+                    <dt class="col-sm-10">
+                        @Enum.GetName(typeof(Facility), f) -
+                    </dt>
+                    <dd class="col-sm-2">
+                        @f;
+                    </dd>
+                }
+                </dl>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

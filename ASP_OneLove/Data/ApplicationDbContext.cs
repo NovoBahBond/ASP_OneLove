@@ -15,9 +15,8 @@ namespace ASP_OneLove.Data
         }
 
         public DbSet<Building> Buildings { get; set; }
-
         public DbSet<ASP_OneLove.Models.Apartment> Apartment { get; set; }
-
         public DbSet<ASP_OneLove.Models.Address> Address { get; set; }
+        public DbSet<ASP_OneLove.Models.SpecialFacility> SpecialFacilities { get; set; }
     }
 }

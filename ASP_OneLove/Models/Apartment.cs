@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using ASP_OneLove.Migrations;
+using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace ASP_OneLove.Models
@@ -6,6 +8,8 @@ namespace ASP_OneLove.Models
     public class Apartment {
         [Key]
         public int ApartmentId { get; set; }
+
+        public string URLPath { get; set; }
 
         //Тип (Дом или квартира)
         public ApartmentType Type { get; set; }
@@ -33,8 +37,14 @@ namespace ASP_OneLove.Models
         
         //Забронировано?
         public bool IsBooked { get; set; } = false;
-        
+
         //Особые удобства
-        public ICollection<SpecialFacilities> SpecialFacilities { get; set; }
+        public ICollection<SpecialFacility> SpecialFacilities { get; set; } = new List<SpecialFacility>();
+
+        public string SpecialFacilitiesAsString
+        {
+            get;
+            set;
+        }
     }
 }

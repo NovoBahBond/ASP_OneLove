@@ -71,7 +71,7 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IsBooked)
+                <input class="form-check" id="Checkbox1" type="checkbox" checked="@item.IsBooked" disabled/>
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ApartmentId">Edit</a> |
