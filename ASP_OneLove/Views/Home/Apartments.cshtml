@@ -45,16 +45,26 @@
     <table class="table col-12">
         <thead>
             <tr>
-                <th>Image</th>
-                <th>@Html.DisplayNameFor(model => model.Type)</th>
-                <th>@Html.DisplayNameFor(model => model.Floor)</th>
-                <th>@Html.DisplayNameFor(model => model.Number)</th>
-                <th>Rooms</th>
-                <th>Baths</th>
-                <th>Beds</th>
-                <th>Faculities</th>
-                <th>Rating</th>
-                <th>@Html.DisplayNameFor(model => model.Price)</th>
+                @*<th>Image</th>
+        <th>@Html.DisplayNameFor(model => model.Type)</th>
+        <th>@Html.DisplayNameFor(model => model.Floor)</th>
+        <th>@Html.DisplayNameFor(model => model.Number)</th>
+        <th>Rooms</th>
+        <th>Baths</th>
+        <th>Beds</th>
+        <th>Faculities</th>
+        <th>Rating</th>
+        <th>@Html.DisplayNameFor(model => model.Price)</th>*@
+                <th>Фото</th>
+                <th>Тип</th>
+                <th>Кол-во этажей</th>
+                <th>Номер дома</th>
+                <th>Кол-во комнат</th>
+                <th>Кол-во ванных комнат</th>
+                <th>Кол-во кроватей</th>
+                <th>Дополнительные услуги</th>
+                <th>Рейтинг</th>
+                <th>Стоимость</th>
             </tr>
         </thead>
         <tbody>
@@ -143,7 +153,7 @@
                     <th>
                         @Html.DisplayFor(modelItem => item.Price) $
                         <br />
-                        <a class="btn btn-success text-white" asp-action="Order" asp-controller="Apartments" asp-route-id="@item.ApartmentId">Order</a>
+                        <a class="btn btn-success text-white" asp-action="Order" asp-controller="Apartments" asp-route-id="@item.ApartmentId">Купить</a>
                     </th>
                 </tr>
             }

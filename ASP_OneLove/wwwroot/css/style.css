@@ -129,16 +129,15 @@ button {
     padding: 0 15px;
     border: 2px solid #C4C4C4;
     color: #888;
-    font-size: x-large;
 }
 
-.search__form-input::placeholder {
-    font-family: 'Roboto Condensed', sans-serif;
-    color: #888;
-    font-size: 18px;
-    line-height: 24;
-    font-weight: 400;
-}
+    .search__form-input::placeholder {
+        font-family: 'Roboto Condensed', sans-serif;
+        color: #888;
+        font-size: 18px;
+        line-height: 24;
+        font-weight: 400;
+    }
 
 .search__form-btn {
     border: none;
@@ -153,14 +152,15 @@ button {
 }
 
 .search__form-btn::before {
-    content: "";
-    position: absolute;
-    height: 18px;
-    width: 18px;
-    background-image: url(../images/search-icon.svg);
-    top: 26px;
-    left: 9px;
+        content: "";
+        position: absolute;
+        height: 18px;
+        width: 18px;
+        background-image: url(../images/search-icon.svg);
+        top: 26px;
+        left: 9px;
 }
+
 
 .popular {
     text-align: center;
