@@ -11,3 +11,23 @@ $(function() {
         }]
     });
 });
+
+
+function PopUpShow() {
+    $(".popup").show("slow");
+}
+
+function PopUpHide() {
+    $(".popup").hide("slow");
+}
+
+$(function () {
+    $('.order-btn').on('click', function () {
+        $('.wrapper').addClass('dark');
+    });
+
+    $('.no-btn').on('click', function () {
+        $('.wrapper').removeClass('dark');
+    });
+
+});

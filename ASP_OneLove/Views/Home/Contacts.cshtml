@@ -1,26 +1,102 @@
-﻿
-@{
-    ViewData["Title"] = "Contacts";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-<!DOCTYPE html>
-<html lang="en">
+﻿<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&family=Roboto+Condensed&display=swap&subset=cyrillic" rel="stylesheet">
-    <link rel="stylesheet" href="~/css/reset.css">
-    <link rel="stylesheet" href="~/css/slick.css">
-    <link rel="stylesheet" href="~/css/style.css">
+<link rel="stylesheet" href="~/css/reset.css">
+<link rel="stylesheet" href="~/css/slick.css">
+<link rel="stylesheet" href="~/css/style.css">
+<link rel="stylesheet" href="~/css/contacts_style.css">
+<link rel="stylesheet" href="~/css/media.css">
 </head>
 <body>
-    <h1>Contacts</h1>
+    <header class="header">
+        <div class="logo header__logo">
+            <a class="logo__link" asp-controller="Home" asp-action="Index">
+                <img class="logo__link-img" src="~/Images/logo.svg" alt="logo">
+            </a>
+        </div>
+        <nav class="menu">
+            <ul class="menu__list">
+                <li class="menu__list-item">
+                    <a class="menu__list-link" asp-controller="Home" asp-action="Index">О нас</a>
+                </li>
+                <li class="menu__list-item">
+                    <a class="menu__list-link" asp-controller="Home" asp-action="House">Дома</a>
+                </li>
+                <li class="menu__list-item">
+                    <a class="menu__list-link" asp-controller="Home" asp-action="Apartments">Квартиры</a>
+                </li>
+                <li class="menu__list-item">
+                    <a class="menu__list-link menu__list-link--active" asp-controller="Home" asp-action="Contacts">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main">
+        <div class="container">
+            <section class="contacts">
+
+                <div class="our-managers">
+                    <h4 class="our-managers__title about__title">
+                        Наши менеджеры
+                    </h4>
+                    <div class="our-managers__items">
+                        <div class="our-managers__item">
+                            <img class="our__managers-img" src="~/images/our-managers-1.jpg" alt="">
+                            <ul class="our-managers__list">
+                                <li class="our-managers__name">Макс</li>
+                                <li class="our-managers__age">30 лет</li>
+                                <li class="our-managers__location">Москва</li>
+                            </ul>
+                            <button class="our-managers__btn">Связаться</button>
+                        </div>
+                        <div class="our-managers__item">
+
+                            <img class="our__managers-img" src="~/images/our-managers-2.jpg" alt="">
+                            <ul class="our-managers__list">
+                                <li class="our-managers__name">Анна</li>
+                                <li class="our-managers__age">28 лет</li>
+                                <li class="our-managers__location">Киев</li>
+                            </ul>
+                            <button class="our-managers__btn">Связаться</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="address">
+                    <h4 class="address__title">Ждем Вас по адресу</h4>
+                    <a href="https://goo.gl/maps/yM1FxnU6cg5Np4mb6"><img class="address__img" src="~/images/google-maps.png" alt=""></a>
+
+                    <div class="address__content">
+                        Ул. Пушкина <br> дом Колотушкина, квартира № 1
+                    </div>
+                    <a class="address__btn" href="https://goo.gl/maps/yM1FxnU6cg5Np4mb6"
+                       class="our-managers__btn">Посмотреть на карте</a>
+
+                </div>
+
+            </section>
+
+            <a class="order-btn" href="javascript:PopUpShow()">Заказать звонок</a>
+
+        </div>
+        <div class="wrapper">
+            <div class="popup">
+                <h4 class="popup__title">Заказ звонка</h4>
+                <p class="popup__description">Напишите ваши данные, и мы свяжемся с вами!</p>
+                <form class="phone__form">
+                    <label class="name-label">Имя</label>
+                    <input class="phone__form-name" type="text" placeholder="Иванов Иван">
+                    <label class="phone-label">Номер телефона</label>
+                    <input class="phone__form-phone" type="number" placeholder="+3809999999">
+                    <button class="yes-btn" type="submit">Оставить заявку</button>
+                    <button class="no-btn" type="submit"><a href="javascript:PopUpHide()">Нет, спасибо</a></button>
+                </form>
+            </div>
+        </div>
+
+    </main>
 
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="js/slick.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="~/js/main.js"></script>
 </body>
 </html>

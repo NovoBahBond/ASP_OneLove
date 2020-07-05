@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "";
 }
 
 <!DOCTYPE html>
@@ -17,17 +17,41 @@
     <link rel="stylesheet" href="~/css/style.css">
 </head>
 
-<body>    
+<body>
+
+    <header class="header">
+        <div class="logo header__logo">
+            <a class="logo__link" asp-controller="Home" asp-action="Index">
+                <img class="logo__link-img" src="~/Images/logo.svg" alt="logo">
+            </a>
+        </div>
+        <nav class="menu">
+            <ul class="menu__list">
+                <li class="menu__list-item">
+                    <a class="menu__list-link menu__list-link--active" asp-controller="Home" asp-action="Index">О нас</a>
+                </li>
+                <li class="menu__list-item">
+                    <a class="menu__list-link" asp-controller="Home" asp-action="House">Дома</a>
+                </li>
+                <li class="menu__list-item">
+                    <a class="menu__list-link" asp-controller="Home" asp-action="Apartments">Квартиры</a>
+                </li>
+                <li class="menu__list-item">
+                    <a class="menu__list-link" asp-controller="Home" asp-action="Contacts">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
     <section class="slider">
         <div class="slider__item" style="background-image: url(images/slider-item.jpg);"></div>
-        <div class="slider__item" style="background-image: url(images/slider-item.jpg);"></div>
+        <div class="slider__item" style="background-image: url(images/slider-item-2.jpg);"></div>
         <div class="slider__item" style="background-image: url(images/slider-item.jpg);"></div>
     </section>
     <section class="search">
         <div class="search__inner">
             <form class="search__form">
                 <label class="search__form-label">Поиск Апартаментов</label>
-                <input class="search__form-input" type="text" placeholder="Введите город">
+                <input class="search__form-input" type="text" placeholder="Введите город"/>
                 <button class="search__form-btn" type="submit">Найти</button>
             </form>
         </div>
@@ -167,7 +191,7 @@
         </div>
     </section>
 
-    
+
 
 
 
